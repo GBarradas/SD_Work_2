@@ -1,0 +1,9 @@
+sd/rentRoom/rest/Request.class
+sd/rentRoom/rest/Turma.class
+sd/rentRoom/rest/TurmaResource.class
+sd/rentRoom/rest/Anuncio.class
+sd/rentRoom/rest/AnucioResource.class
+sd/rentRoom/rest/MainAppServer.class
+sd/rentRoom/rest/BDConexao.class
+sd/rentRoom/rest/Mensagem.class
+sd/rentRoom/rest/Aluno.class
