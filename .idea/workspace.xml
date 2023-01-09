@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a324b16-be61-41c8-a975-0fa07ddf9658" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/AnucioResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/Anuncio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/BDConexao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/Mensagem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/Request.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="6a324b16-be61-41c8-a975-0fa07ddf9658" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/barradas/Desktop/SD_Work_2",
+    "last_opened_file_path": "/home/barradas/Desktop/TW_Work_2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -65,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671960897209</updated>
-      <workItem from="1671960898421" duration="10902000" />
+      <workItem from="1671960898421" duration="11615000" />
     </task>
     <servers />
   </component>
