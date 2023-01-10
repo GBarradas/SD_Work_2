@@ -10,6 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="sd.rest.sample" target="1.8" />
       <module name="simple-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>

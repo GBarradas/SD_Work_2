@@ -14,7 +14,7 @@ public class MainAppServer {
     }
 
     private static URI getBaseURI() {
-        return URI.create("http://localhost:8001/sd/");
+        return URI.create("http://localhost:8080/");
     }
 
     public static final URI BASE_URI = getBaseURI();
