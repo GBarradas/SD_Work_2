@@ -22,18 +22,14 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-
-/**
- *
- * @author barradas e baião
- */
 public class Client {
+
     static final String URI = "http://localhost:8080";
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static String nomeUser;
 
     //menu que mostra todas as operações que o utilizador pode efetuar
-    public static void menuPrinicipal() throws IOException, ParseException {
+    public static void menuPrinicipal() throws IOException, ParseException, java.text.ParseException {
         int func = 0;
         try {
             System.out.print(
@@ -227,7 +223,7 @@ public class Client {
     }
 
     // recolhe os filtros e comunica com o objeto remoto para obter os anuncios
-    public static void filtrarAnuncios() throws IOException, ParseException {
+    public static void filtrarAnuncios() throws IOException, ParseException, java.text.ParseException {
         String tipo = "";
         String zona = "";
         String descricao = "";
@@ -288,8 +284,9 @@ public class Client {
         BufferedReader ri = new BufferedReader(new InputStreamReader(cnt.getInputStream()));
         String response = ri.readLine();
         JSONArray jna = new JSONArray(response);
-        for(Object jso: jna){
-
+        for(int i = 0; i < jna.length(); i++){
+            JSONObject jso = jna.getJSONObject(i);
+            printAnuncio(jso);
         }
 
 
@@ -308,8 +305,13 @@ public class Client {
                     System.err.println("ERRO AO LER ID!");
                 } else {
                     aid = Integer.parseInt(aux);
-                    //Anuncio a = obj.getAnuncio(aid);
-                    //System.out.println(a);
+                    HttpURLConnection cnt = (HttpURLConnection) new URL(
+                            URI + "/anuncios" + "/"+aid).openConnection();
+                    cnt.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+                    cnt.setRequestProperty("Accept", "application/json");
+                    cnt.setRequestMethod("GET");
+                    cnt.setDoOutput(true);
+
                     break;
                 }
             } catch (Exception e) {
@@ -377,9 +379,6 @@ public class Client {
         nomeUser = args[2];
 
         try {
-            //inicia a conecção com o objeto remoto
-            // obj = (GestorAnuncios) java.rmi.Naming.lookup("rmi://"
-            //        + host +":"+port +"/RoomRent");
             System.out.println("Bem vindo " + nomeUser);
             menuPrinicipal();
 
@@ -406,4 +405,6 @@ public class Client {
                 "\t Data: " + date.toString() + "\n"+
                 "\t Preço: "+ df.format(obj.getDouble("preco")) + "\n");
     }
+
+
 }

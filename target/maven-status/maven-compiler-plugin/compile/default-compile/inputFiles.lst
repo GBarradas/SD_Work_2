@@ -1,9 +1,8 @@
-/home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/rest/Aluno.java
+/home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/client/Client.java
 /home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/rest/Anuncio.java
 /home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/rest/AnucioResource.java
-/home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/rest/TurmaResource.java
 /home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/rest/MainAppServer.java
+/home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/rest/MsgResource.java
 /home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/rest/BDConexao.java
-/home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/rest/Turma.java
-/home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/rest/Request.java
 /home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/rest/Mensagem.java
+/home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/client/ClienteGestao.java

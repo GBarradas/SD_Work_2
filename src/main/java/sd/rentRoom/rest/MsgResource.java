@@ -1,32 +1,37 @@
 package sd.rentRoom.rest;
 
 import jakarta.ws.rs.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-@Path(value="/sentMsg")
+@Path(value="/msg")
 public class MsgResource {
 
+    @Autowired
     BDConexao bd;
 
-    public MsgResource() throws Exception
-    {
-        bd = new BDConexao();
+    @GET
+    @Produces({"application/json"})
+    public synchronized String function(){
+        return "ola";
     }
 
+    @Path("/send")
     @POST
-    @Consumes({"application/json", "application/xml"})
-    @Produces({"application/json", "application/xml"})
+    @Consumes({"application/json"})
+    @Produces({"application/json"})
     public synchronized String sendMsg(
-            int aid,
-            String name,
+            @QueryParam("aid") int aid,
+            @QueryParam("name") String name,
             @QueryParam("msg") String msg
     ){
         bd.enviarMensagem(aid, name, msg);
         return "MENSAGEM ENVIADA!";
     }
 
-    @Path("/seeMsgs")
+    @Path("/see")
+    @GET
     @Consumes({"application/json", "application/xml"})
     @Produces({"application/json", "application/xml"})
     public synchronized List<Mensagem> getMsg(

@@ -4,6 +4,8 @@
  */
 package sd.rentRoom.rest;
 
+import org.jvnet.hk2.annotations.Service;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,7 +25,7 @@ public class BDConexao {
     private String dbUser;
     private String dbPass;
     Connection con = null;
-    Statement stmt = null;
+
     public BDConexao() throws IOException
     {
         Properties p = new Properties();
@@ -50,6 +52,11 @@ public class BDConexao {
             System.err.println("Problems setting the connection");
         }
     }
+    public BDConexao bd(){
+        return this;
+    }
+
+    Statement stmt = null;
 
     public void disconnect() {    // fechar a ligacao á base de dados
         try {

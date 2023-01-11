@@ -22,7 +22,7 @@ import java.util.List;
  * @author barradas e baião
  */
 public class ClienteGestao {
-
+    /*
     static final String URI = "http://localhost:8080";
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -206,4 +206,5 @@ public class ClienteGestao {
                         "\t Preço: "+ df.format(obj.getDouble("preco")) + "\n");
 
     }
+    */
 }
