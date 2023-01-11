@@ -1,8 +1,6 @@
 package sd.rentRoom.rest;
 
-import jakarta.json.Json;
-import jakarta.json.JsonArray;
-import jakarta.json.JsonArrayBuilder;
+
 import jakarta.json.bind.annotation.JsonbDateFormat;
 import jakarta.ws.rs.*;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,32 +16,31 @@ public class AnucioResource {
     {
         bd = new BDConexao();
     }
-
-
-
     @GET
     @Consumes({"application/json", "application/xml"})
     @Produces({"application/json", "application/xml"})
-    public synchronized Request getAnuncios(
-            @QueryParam("tipo" ) String tipo
+    public synchronized List<Anuncio> getByTipo(
+        @QueryParam("tipo") String tipo
     ){
-        List<Anuncio> a = bd.Filtrar("tipo ilike  '"+tipo+"'");
-        Request r =new Request( a);
-        return r;
+        List<Anuncio> ls = null;
+        ls = bd.Filtrar("tipo islike '" + tipo + "'");
+        return ls;
     }
 
     @Path("/novo")
     @POST
     @Consumes({"application/json", "application/xml"})
     @Produces({"application/json", "application/xml"})
-    public synchronized Anuncio addOferta(
-            @QueryParam("tipo") String tipo,
+    public synchronized int addOferta(
+            /*@QueryParam("tipo") String tipo,
             @QueryParam("genero") String genero,
             @QueryParam("zona") String zona,
             @QueryParam("anunciante") String anunciante,
             @QueryParam("tipologia") String tipologia,
-            @QueryParam("preco") double preco
+            @QueryParam("preco") double preco*/
+            @QueryParam("Anuncio") Anuncio a
     ){
+        /*
         Anuncio a = new Anuncio();
         a.setGenero(genero);
         a.setZona(zona);
@@ -52,9 +49,9 @@ public class AnucioResource {
         a.setPreco(preco);
         a.setData(new Date());
         a.setTipo("oferta");
+        */
         int aid = bd.registarAnuncio(a);
-        a.setAid(aid);
-        return a;
+        return aid;
     }
 
     @Path("/listar")
@@ -62,15 +59,26 @@ public class AnucioResource {
     @Consumes({"application/json", "application/xml"})
     @Produces({"application/json", "application/xml"})
     public synchronized List<Anuncio> getAnnounce(
-            @QueryParam("descricao") String descricao,
+            @RequestParam(name="tipo",required = false) String tipo,
+            @RequestParam(name="descricao",required = false) String descricao,
             @RequestParam(name="zona", required = false) String zona
     ){
         List<Anuncio> a = null;
-        if(zona==null) {
-            a = bd.Filtrar("descricao ilike '%" + descricao + "%'");
-        } else{
-            a = bd.Filtrar("descricao ilike '%" + descricao + "%' AND zona ilike '"+zona+"'");
+        String filtros = "";
+        if(descricao != null) {
+            filtros += "descricao ilike '%" + descricao + "%'";
         }
+        if(zona != null){
+            if(!filtros.equals(""))
+                filtros+= "AND";
+            filtros += " zona ilike '%"+zona+"%'";
+        }
+        if(tipo != null){
+            if(!filtros.equals(""))
+                filtros+= "AND";
+            filtros += "tipo ilike '"+tipo+"'";
+        }
+        a=bd.Filtrar(filtros);
     return a;
     }
 

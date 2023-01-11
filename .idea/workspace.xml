@@ -5,30 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a324b16-be61-41c8-a975-0fa07ddf9658" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/MsgResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_1_41.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_classgraph_classgraph_4_8_44.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20211205.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_json_jakarta_json_api_2_0_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_json_jakarta_json_api_9_1_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sd.rest.sample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sd.rest.sample.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/Aluno.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/AnucioResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/AnucioResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/Aluno.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/AnucioResource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/Anuncio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/BDConexao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/MainAppServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/Mensagem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/Request.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/Turma.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/TurmaResource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/Anuncio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/Anuncio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/Request.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/Turma.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/TurmaResource.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/sd/rentRoom/rest/MainAppServerTest.class" beforeDir="false" />
     </list>
-    <list id="85d4b3d7-3b78-476b-9a81-a771515c8ba2" name="Changes by barradas" comment="">
+    <list id="eeeb024b-fbdc-43dc-99f2-8c52106bd447" name="Changes by andre" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/AnucioResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/AnucioResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/MainAppServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/MainAppServer.java" afterDir="false" />
     </list>
+    <list id="85d4b3d7-3b78-476b-9a81-a771515c8ba2" name="Changes by barradas" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,14 +44,18 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/AnucioResource.java">
       <ranges>
-        <range start1="2" end1="2" start2="2" end2="5" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
-        <range start1="4" end1="4" start2="7" end2="8" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
-        <range start1="16" end1="16" start2="20" end2="23" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
-        <range start1="17" end1="17" start2="24" end2="25" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
-        <range start1="26" end1="27" start2="34" end2="35" changelist="85d4b3d7-3b78-476b-9a81-a771515c8ba2" />
-        <range start1="31" end1="31" start2="39" end2="40" changelist="85d4b3d7-3b78-476b-9a81-a771515c8ba2" />
-        <range start1="33" end1="36" start2="42" end2="45" changelist="85d4b3d7-3b78-476b-9a81-a771515c8ba2" />
-        <range start1="50" end1="50" start2="59" end2="121" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
+        <range start1="2" end1="5" start2="2" end2="3" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
+        <range start1="20" end1="23" start2="18" end2="18" changelist="eeeb024b-fbdc-43dc-99f2-8c52106bd447" />
+        <range start1="26" end1="28" start2="21" end2="23" changelist="eeeb024b-fbdc-43dc-99f2-8c52106bd447" />
+        <range start1="29" end1="32" start2="24" end2="27" changelist="eeeb024b-fbdc-43dc-99f2-8c52106bd447" />
+        <range start1="38" end1="40" start2="33" end2="35" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
+        <range start1="44" end1="45" start2="39" end2="41" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
+        <range start1="46" end1="46" start2="42" end2="43" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
+        <range start1="54" end1="54" start2="51" end2="52" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
+        <range start1="55" end1="57" start2="53" end2="54" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
+        <range start1="64" end1="65" start2="61" end2="63" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
+        <range start1="68" end1="72" start2="66" end2="74" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
+        <range start1="73" end1="73" start2="75" end2="81" changelist="6a324b16-be61-41c8-a975-0fa07ddf9658" />
       </ranges>
     </file>
   </component>
@@ -79,9 +80,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "jdk.selected.JAVA_MODULE": "18",
-    "last_opened_file_path": "/home/barradas/Desktop/TW_Work_2",
+    "last_opened_file_path": "/home/barradas/Desktop/SD_Work_2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,6 +92,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "315463d2668bd086275659bcb4ef4dfc",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -102,6 +106,7 @@
       <updated>1671960897209</updated>
       <workItem from="1671960898421" duration="11615000" />
       <workItem from="1673367470890" duration="14558000" />
+      <workItem from="1673386942721" duration="11451000" />
     </task>
     <servers />
   </component>

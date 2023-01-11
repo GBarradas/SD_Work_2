@@ -36,9 +36,9 @@ public class Anuncio
     private String tipologia;
     @XmlElement(required = true)
     private int aid;
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     private Date data;
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     private Double preco;
 
     public Anuncio(String tipo, String estado, String anunciante, double preco, String genero, String zona, int aid, Date data, String tipologia){
