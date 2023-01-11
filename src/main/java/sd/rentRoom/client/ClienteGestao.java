@@ -94,7 +94,7 @@ public class ClienteGestao {
             cnt.setRequestProperty("Accept", "application/json");
             cnt.setRequestMethod("POST");
             cnt.setDoOutput(true);
-            String obj = "{"
+            String obj = "{\"estado\":\""+estado+"\"}";
             if (estado.toLowerCase().equals("inativo")) {
 
                 BufferedReader l = new BufferedReader(new InputStreamReader(cnt.getInputStream()));
