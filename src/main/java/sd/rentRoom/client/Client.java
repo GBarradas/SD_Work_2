@@ -4,10 +4,7 @@ package sd.rentRoom.client;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.springframework.http.converter.json.GsonHttpMessageConverter;
-import sd.rentRoom.rest.Anuncio;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,29 +16,28 @@ import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Client {
 
-    static final String URI = "http://localhost:8080";
+    static final String URI = "http://localhost:8000";
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static String nomeUser;
 
     //menu que mostra todas as operações que o utilizador pode efetuar
-    public static void menuPrinicipal() throws IOException, ParseException, java.text.ParseException {
+    public static void menuPrinicipal() throws Exception {
         int func = 0;
         try {
             System.out.print(
-                    "--------------------------" +
-                            "Escolha a funcionalidade:" +
-                            "1 - Register Anuncio" +
-                            "2 - Listar Anuncios" +
-                            "3 - Obter Anuncio" +
-                            "4 - Enviar Mensagem" +
-                            "5 - Consultar Mensagens" +
-                            "6 - Os Seus Anuncios" +
-                            "7 - Sair");
+                    "--------------------------\n" +
+                            "Escolha a funcionalidade:\n" +
+                            "1 - Register Anuncio\n" +
+                            "2 - Listar Anuncios\n" +
+                            "3 - Obter Anuncio\n" +
+                            "4 - Enviar Mensagem\n" +
+                            "5 - Consultar Mensagens\n" +
+                            "6 - Os Seus Anuncios\n" +
+                            "7 - Sair\n" +
+                            "Opção: ");
             func = Integer.parseInt(br.readLine());
 
 
@@ -90,6 +86,7 @@ public class Client {
         String genero = "";
         String tipo = "";
         String tipologia = "";
+        String descricao = "";
 
 
         System.out.println("Insira as seguintes informações:");
@@ -185,18 +182,21 @@ public class Client {
                 System.err.println("ERRO! AO DEFINIR TIPOLOGIA!");
             }
         }
+        System.out.println("Descrição: ");
+        descricao = br.readLine();
         try {
             HttpURLConnection cnt = (HttpURLConnection) new URL(
-                    URI + "/anuncios" + "/add").openConnection();
+                    URI + "/anuncios" + "/novo").openConnection();
             cnt.setRequestProperty("Content-Type", "application/json; charset=utf-8");
             cnt.setRequestProperty("Accept", "application/json");
             cnt.setRequestMethod("POST");
             cnt.setDoOutput(true);
             String obj = "{\"tipo\":\"" + tipo + "\", \"estado\":\"inativo\", \"genero\": \"" + genero + "\"," +
-                    "\"zona\": \"" + zona.replace(" ", "%20") + "\", " +
-                    "\"anunciante\" : \" " + nomeUser.replace(" ", "%20") + "\", " +
+                    "\"zona\": \"" + zona + "\", " +
+                    "\"anunciante\" : \" " + nomeUser + "\", " +
                     "\"tipologia\": \"" + tipologia + "\" , \"aid\": \"-1\", " +
-                    "}";
+                    "\"preco\": \""+preco+"\", \"descricao\": \""+descricao+"\"}";
+            System.out.println(obj);
             try {
                 OutputStream os = cnt.getOutputStream();
                 byte[] arr = obj.getBytes(StandardCharsets.UTF_8);
@@ -209,6 +209,10 @@ public class Client {
                 String anun = ri.readLine();
                 ri.close();
                 i = Integer.parseInt(anun);
+                if(i == -1){
+                    System.out.println("ERRO  AO SUBMETER O ANUNCIO!!");
+                    menuPrinicipal();
+                }
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -223,7 +227,7 @@ public class Client {
     }
 
     // recolhe os filtros e comunica com o objeto remoto para obter os anuncios
-    public static void filtrarAnuncios() throws IOException, ParseException, java.text.ParseException {
+    public static void filtrarAnuncios() throws Exception {
         String tipo = "";
         String zona = "";
         String descricao = "";
@@ -261,6 +265,8 @@ public class Client {
         System.out.println("Descrição(0-para ignorar): ");
         while (true) {
             String d = br.readLine();
+            if(d.equals("0"))
+                break;
             if (d.length() < 2) {
                 System.out.println("INPUT INVALIDO!!");
                 continue;
@@ -288,12 +294,13 @@ public class Client {
             JSONObject jso = jna.getJSONObject(i);
             printAnuncio(jso);
         }
-
+        System.out.println( jna.length() + " ANUNCIOS LISTADOS");
+        menuPrinicipal();
 
     }
 
     //le um aid e mostra as informações sobre o anuncio
-    public static void obterAnuncio() throws IOException {
+    public static void obterAnuncio() throws Exception{
         int aid;
         String aux;
 
@@ -311,14 +318,23 @@ public class Client {
                     cnt.setRequestProperty("Accept", "application/json");
                     cnt.setRequestMethod("GET");
                     cnt.setDoOutput(true);
+                    try {
+                        BufferedReader ri = new BufferedReader(new InputStreamReader(cnt.getInputStream()));
+                        String response = ri.readLine();
+                        JSONObject jobj = new JSONObject(response);
 
-                    break;
+                        printAnuncio(jobj);
+                        break;
+                    }
+                    catch(Exception e){
+                        System.err.println("ANUNCIO INVALIDO OU INEXISTENTE!!");
+                    }
                 }
             } catch (Exception e) {
                 System.err.println("ERRO! VOLTE A TENTAR");
             }
         }
-        //menuPrinicipal();
+        menuPrinicipal();
     }
 
     // le as mensagens e envia para o objeto remoto
@@ -330,8 +346,30 @@ public class Client {
             aid = Integer.parseInt(br.readLine());
             System.out.print("Digite a mensagem a enviar: ");
             msg = br.readLine();
-            //obj.enviarMensagem(aid, nomeUser, msg);
-            System.out.println("MENSAGEM ENVIADA COM SUCESSO!");
+            HttpURLConnection cnt = (HttpURLConnection) new URL(
+                    URI + "/msg/send").openConnection();
+            cnt.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+            cnt.setRequestProperty("Accept", "application/json");
+            cnt.setRequestMethod("POST");
+            cnt.setDoOutput(true);
+            String send = "{\"aid\":\""+aid+"\",\"remetente\":\""+nomeUser+"\",\"msg\":\""+msg+"\"}";
+            try {
+                OutputStream os = cnt.getOutputStream();
+                byte[] arr = send.getBytes(StandardCharsets.UTF_8);
+                os.write(arr, 0, arr.length);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                BufferedReader ri = new BufferedReader(new InputStreamReader(cnt.getInputStream(), StandardCharsets.UTF_8));
+                String Smsg = ri.readLine();
+                ri.close();
+                System.out.println(Smsg);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             menuPrinicipal();
         } catch (Exception e) {
             System.err.println("ERRO! VOLTE A TENTAR");
@@ -345,11 +383,25 @@ public class Client {
         try {
             System.out.print("Digite o ID do anuncio: ");
             aid = Integer.parseInt(br.readLine());
-            //List<Mensagem> resultados = obj.getMensagens(aid);
-            // for(Mensagem m: resultados){
-            //    System.out.println(m);
-            //}
-            //System.out.println("\n"+resultados.size()+ " MENSSAGENS");
+            HttpURLConnection cnt = (HttpURLConnection) new URL(
+                    URI + "/msg/see?aid="+aid).openConnection();
+            cnt.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+            cnt.setRequestProperty("Accept", "application/json");
+            cnt.setRequestMethod("GET");
+            try {
+                BufferedReader ri = new BufferedReader(new InputStreamReader(cnt.getInputStream(), StandardCharsets.UTF_8));
+                String Smsg = ri.readLine();
+                ri.close();
+                System.out.println(Smsg);
+                JSONArray jArr = new JSONArray(Smsg);
+                for(int i = 0; i < jArr.length();i++){
+                    printMensagem(jArr.getJSONObject(i));
+                }
+                System.out.println(jArr.length() + " MENSAGENS!!");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             menuPrinicipal();
         } catch (Exception e) {
             e.printStackTrace();
@@ -357,19 +409,41 @@ public class Client {
     }
 
     //obtem informações dos anuncios do proprio utilizador
-    public static void anunciosDoProprio() throws IOException {
-        //List<Anuncio> resultados = obj.anunciosUser(nomeUser);
-        //for(Anuncio a: resultados){
-        //    System.out.println(a);
-        //}
-        //System.out.println(resultados.size()+ " ANUNCIOS");
-        // menuPrinicipal();
+    public static void anunciosDoProprio() throws Exception {
+        HttpURLConnection cnt = (HttpURLConnection) new URL(
+                URI + "/anuncios/user").openConnection();
+        cnt.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+        cnt.setRequestProperty("Accept", "application/json");
+        cnt.setRequestMethod("POST");
+        cnt.setDoOutput(true);
+        String send = "{\"anunciante\": \""+nomeUser+"\"}";
+        try {
+            OutputStream os = cnt.getOutputStream();
+            byte[] arr = send.getBytes(StandardCharsets.UTF_8);
+            os.write(arr, 0, arr.length);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            BufferedReader ri = new BufferedReader(new InputStreamReader(cnt.getInputStream(), StandardCharsets.UTF_8));
+            String Smsg = ri.readLine();
+            ri.close();
+            JSONArray jArr = new JSONArray(Smsg);
+            for(int i = 0; i < jArr.length();i++){
+                printAnuncio(jArr.getJSONObject(i));
+            }
+            System.out.println(jArr.length()+ "ANUNCIOS LISTADOS!!");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        menuPrinicipal();
     }
 
     public static void main(String[] args) {
         String host = "localhost";
         String port = "9000";  // porto do binder
-        if (args.length != 3) { // requer 3 argumentos
+        /*if (args.length != 3) { // requer 3 argumentos
             System.err.println
                     ("ERRO ARGUMENTOS: <host> <port> <nome de utilizador>");
             System.exit(1);
@@ -377,7 +451,8 @@ public class Client {
         host = args[0];
         port = args[1];
         nomeUser = args[2];
-
+        */
+        nomeUser="barradas";
         try {
             System.out.println("Bem vindo " + nomeUser);
             menuPrinicipal();
@@ -388,11 +463,11 @@ public class Client {
         }
     }
     public static void printAnuncio(JSONObject obj) throws java.text.ParseException {
-        String dateStr = obj.getString("birthdate");
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String dateStr = obj.getString("data");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = sdf.parse(dateStr);
         DecimalFormat df = new DecimalFormat("#,##0.00€");
-
+        sdf = new SimpleDateFormat("dd-MM-yyyy");
        System.out.println(
                "-------------------------------------------------------\n" +
                 "\t Aid: "+ obj.getInt("aid") + "\n"+
@@ -402,9 +477,17 @@ public class Client {
                 "\t Zona: " + obj.getString("zona") + "\n"+
                 "\t Anunciante:  "+ obj.getString("anunciante") + "\n"+
                 "\t Tipologia: "+ obj.getString("tipologia") + "\n"+
-                "\t Data: " + date.toString() + "\n"+
-                "\t Preço: "+ df.format(obj.getDouble("preco")) + "\n");
+                "\t Data: " + sdf.format(date) + "\n"+
+                "\t Preço: "+ df.format(obj.getDouble("preco")) + "\n" +
+                "\t Descrição: "+obj.getString("descricao")+"\n");
     }
-
+    public static void printMensagem(JSONObject jObj) throws java.text.ParseException {
+        String dateStr = jObj.getString("data");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = sdf.parse(dateStr);
+        sdf = new SimpleDateFormat("dd-MM-yyyy");
+        System.out.println( "-------------------------------------------------------------------------------\n     "
+                +jObj.getString("remetente")+"("+sdf.format(date)+"): " +jObj.getString("msg")+";");
+    }
 
 }

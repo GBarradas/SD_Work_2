@@ -12,9 +12,11 @@ import java.util.List;
 @Path(value = "/anuncios")
 public class AnucioResource {
 
-    @Autowired
     public BDConexao bd;
-
+    public AnucioResource() throws Exception
+    {
+        bd = new BDConexao();
+    }
 
     @GET
     @Consumes({"application/json", "application/xml"})
@@ -85,6 +87,22 @@ public class AnucioResource {
         a=bd.Filtrar(filtros);
     return a;
     }
+    /*
+    @Path("/user@{user}")
+    @GET
+    @Consumes({"application/json", "application/xml"})
+    @Produces({"application/json", "application/xml"})
+    public synchronized List<Anuncio> getAnnounceProprio(
+            @PathParam("user") String user
+    ){
+        System.out.println("LISTA ANUNCIOS");
+        List<Anuncio> a = null;
+        String filtros = "anunciante ilike ´"+user+"'";
+
+        System.out.println(filtros);
+        a=bd.Filtrar(filtros);
+        return a;
+    }*/
 
     @Path("/{aid}")
     @GET
@@ -95,7 +113,22 @@ public class AnucioResource {
     ){
         Anuncio a = new Anuncio();
         a = bd.getAnuncio(aid);
+        System.out.println(a.getEstado());
+        if(a.getEstado().equals("inativo"))
+            return null;
         return a;
+    }
+    @Path("/user")
+    @POST
+    @Consumes({"application/json", "application/xml"})
+    @Produces({"application/json", "application/xml"})
+    public synchronized List<Anuncio> getAnnounceUser(
+            Anuncio a
+    ){
+        String filtros = "anunciante ilike '%"+a.getAnunciante()+"%'";
+        List<Anuncio> ann;
+        ann = bd.Filtrar(filtros);
+        return ann;
     }
 
     @Path("/gestao/listagem")
@@ -103,10 +136,10 @@ public class AnucioResource {
     @Consumes({"application/json", "application/xml"})
     @Produces({"application/json", "application/xml"})
     public synchronized List<Anuncio> getAnnounce(
-            @QueryParam("estado") String estado
+           Anuncio a
     ){
         List<Anuncio> anns = null;
-        anns = bd.listaAnunciosEstado(estado);
+        anns = bd.listaAnunciosEstado(a.getEstado());
         return anns;
     }
     @Path("/gestao/alterar")
@@ -114,10 +147,13 @@ public class AnucioResource {
     @Consumes({"application/json", "application/xml"})
     @Produces({"application/json", "application/xml"})
     public synchronized String changeAnnounce(
-        @QueryParam("aid") int aid,
-        @QueryParam("estado") String estado
+        Anuncio a
     ){
-        bd.alterarEstado(aid, estado);
+        a = bd.getAnuncio(a.getAid());
+        if (a.getEstado().equals("ativo"))
+            bd.alterarEstado(a.getAid(), "inativo");
+        if(a.getEstado().equals("inativo"))
+            bd.alterarEstado(a.getAid(), "ativo");
         return "ESTADO ALTERADO!";
     }
 
@@ -125,11 +161,25 @@ public class AnucioResource {
     @POST
     @Consumes({"application/json", "application/xml"})
     @Produces({"application/json", "application/xml"})
-    public synchronized String changeAnnounce(
-            @QueryParam("aid") int aid
+    public synchronized String aproveAnnounce(
+             Anuncio a
     ){
-        bd.alterarEstado(aid, "ativo");
+        System.out.println(a.getAid());
+        bd.alterarEstado(a.getAid(), "ativo");
         return "ANUNCIO APROVADO!";
+    }
+
+    @Path("/gestao")
+    @POST
+    @Consumes({"application/json"})
+    @Produces({"application/json", "application/xml"})
+    public synchronized Anuncio getAnnounceGestao(
+             Anuncio a
+    ){
+        a = bd.getAnuncio(a.getAid());
+        if(a==null)
+            return null;
+        return a;
     }
 
 }

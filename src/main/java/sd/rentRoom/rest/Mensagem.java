@@ -17,6 +17,8 @@ public class Mensagem implements java.io.Serializable
     private String msg;
     @XmlElement(required = true)
     private Date data;
+
+
     public Mensagem(int aid, String remetente, String msg,Date data){
         this.aid = aid;
         this.remetente = remetente;
@@ -49,6 +51,9 @@ public class Mensagem implements java.io.Serializable
     }
     public String getMsg (){
         return this.msg;
+    }
+    public Date getData(){
+        return this.data;
     }
 
     @Override

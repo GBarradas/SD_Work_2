@@ -8,8 +8,11 @@ import java.util.List;
 @Path(value="/msg")
 public class MsgResource {
 
-    @Autowired
-    BDConexao bd;
+    public BDConexao bd;
+    public MsgResource() throws Exception
+    {
+        bd = new BDConexao();
+    }
 
     @GET
     @Produces({"application/json"})
@@ -19,14 +22,13 @@ public class MsgResource {
 
     @Path("/send")
     @POST
-    @Consumes({"application/json"})
-    @Produces({"application/json"})
+    @Consumes({"application/json", "application/xml"})
+    @Produces({"application/json", "application/xml"})
     public synchronized String sendMsg(
-            @QueryParam("aid") int aid,
-            @QueryParam("name") String name,
-            @QueryParam("msg") String msg
+            Mensagem msg
     ){
-        bd.enviarMensagem(aid, name, msg);
+        System.out.println(msg.getAid()+"|"+msg.getRemetente()+"|"+msg.getMsg());
+        bd.enviarMensagem(msg.getAid(), msg.getRemetente(), msg.getMsg());
         return "MENSAGEM ENVIADA!";
     }
 

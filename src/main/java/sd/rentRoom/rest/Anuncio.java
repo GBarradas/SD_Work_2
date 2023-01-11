@@ -41,7 +41,10 @@ public class Anuncio
     @XmlElement(required = false)
     private Double preco;
 
-    public Anuncio(String tipo, String estado, String anunciante, double preco, String genero, String zona, int aid, Date data, String tipologia){
+    @XmlElement(required = false)
+    private String descricao;
+
+    public Anuncio(String tipo, String estado, String anunciante, double preco, String genero, String zona, int aid, Date data, String tipologia, String descricao){
         this.tipo = tipo;
         this.estado = estado;
         this.anunciante = anunciante;
@@ -51,6 +54,7 @@ public class Anuncio
         this.aid = aid;
         this.data = data;
         this.tipologia = tipologia;
+        this.descricao = descricao;
     }
     public Anuncio(){
         this.tipo = null;
@@ -62,6 +66,7 @@ public class Anuncio
         this.aid = -1;
         this.data = null;
         this.tipologia = null;
+        this.descricao = null;
     }
     public void setAid(int aid){
         this.aid = aid;
@@ -90,6 +95,9 @@ public class Anuncio
     public void setTipologia(String s){
         this.tipologia = s;
     }
+    public void setDescricao(String d){
+        this.descricao = d;
+    }
 
     public String getTipo() {
         return this.tipo;
@@ -117,6 +125,9 @@ public class Anuncio
     }
     public String getTipologia(){
         return this.tipologia;
+    }
+    public String getDescricao(){
+        return this.descricao;
     }
 
     @Override

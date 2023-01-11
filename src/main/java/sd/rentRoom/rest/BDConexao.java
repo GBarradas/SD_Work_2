@@ -69,7 +69,7 @@ public class BDConexao {
 
     public int registarAnuncio(Anuncio a){      //registar anuncio na bd
         try{
-            stmt.executeUpdate("insert into anuncios(tipo, estado, anunciante, preco, genero, zona, data, tipologia) values('"+
+            stmt.executeUpdate("insert into anuncios(tipo, estado, anunciante, preco, genero, zona, data, tipologia,descricao) values('"+
                     a.getTipo()+"', '"+
                     "inativo', '"+
                     a.getAnunciante()+"', '"+
@@ -77,7 +77,8 @@ public class BDConexao {
                     a.getGenero()+"', '"+
                     a.getZona()+"', '"+
                     new Date() +"', '"+
-                    a.getTipologia()+"')");
+                    a.getTipologia()+"', '"+
+                    a.getDescricao()+ "')");
             //obter o id com que o anuncio ficou
             ResultSet rs = stmt.executeQuery("select max(aid) as id from anuncios;");
             while(rs.next()){
@@ -107,6 +108,7 @@ public class BDConexao {
                 a.setTipologia(rs.getString("tipologia"));
                 a.setTipo(rs.getString("tipo"));
                 a.setEstado(rs.getString("estado"));
+                a.setDescricao(rs.getString("descricao"));
                 resultado.add(a);
             }
             return resultado;
@@ -132,6 +134,7 @@ public class BDConexao {
                 a.setTipologia(rs.getString("tipologia"));
                 a.setTipo(rs.getString("tipo"));
                 a.setEstado(rs.getString("estado"));
+                a.setDescricao(rs.getString("descricao"));
                 resultado.add(a);
             }
             return resultado;
@@ -155,6 +158,7 @@ public class BDConexao {
                 a.setTipologia(rs.getString("tipologia"));
                 a.setTipo(rs.getString("tipo"));
                 a.setEstado(rs.getString("estado"));
+                a.setDescricao(rs.getString("descricao"));
 
                 return a;
             }
@@ -211,6 +215,7 @@ public class BDConexao {
                 a.setTipologia(rs.getString("tipologia"));
                 a.setTipo(rs.getString("tipo"));
                 a.setEstado(rs.getString("estado"));
+                a.setDescricao(rs.getString("descricao"));
                 resultado.add(a);
             }
             return resultado;
