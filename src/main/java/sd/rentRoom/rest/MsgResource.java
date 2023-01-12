@@ -2,6 +2,7 @@ package sd.rentRoom.rest;
 
 import jakarta.ws.rs.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import sd.rentRoom.mqtt.Publisher;
 
 import java.util.List;
 
@@ -9,9 +10,12 @@ import java.util.List;
 public class MsgResource {
 
     public BDConexao bd;
+    private Publisher publisher;
     public MsgResource() throws Exception
     {
+
         bd = new BDConexao();
+        publisher = new Publisher();
     }
 
     @GET
@@ -26,9 +30,10 @@ public class MsgResource {
     @Produces({"application/json", "application/xml"})
     public synchronized String sendMsg(
             Mensagem msg
-    ){
+    ) throws Exception {
         System.out.println(msg.getAid()+"|"+msg.getRemetente()+"|"+msg.getMsg());
         bd.enviarMensagem(msg.getAid(), msg.getRemetente(), msg.getMsg());
+        publisher.sendNotification(("anuncio"+msg.getAid()),("Recebeu um mensagem no anuncio "+msg.getAid()));
         return "MENSAGEM ENVIADA!";
     }
 

@@ -4,6 +4,7 @@ package sd.rentRoom.client;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import sd.rentRoom.mqtt.Subscriber;
 
 
 import java.io.BufferedReader;
@@ -16,9 +17,10 @@ import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Client {
-
+    static private Subscriber pubSub;
     static final String URI = "http://localhost:8000";
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static String nomeUser;
@@ -27,6 +29,13 @@ public class Client {
     public static void menuPrinicipal() throws Exception {
         int func = 0;
         try {
+            List<String> msgs= pubSub.mqttGetMsg();
+            if(msgs.size() != 0){
+                System.out.println(msgs.size()+" MENSAGENS!");
+                for(String m: msgs){
+                    System.out.println(m);
+                }
+            }
             System.out.print(
                     "--------------------------\n" +
                             "Escolha a funcionalidade:\n" +
@@ -220,6 +229,20 @@ public class Client {
 
 
             System.out.println("ANUNCIO REGISTADO COM ID: " + i);
+            while(true){
+                System.out.println("Deseja ser notificado? (s/n) :");
+                String response = br.readLine();
+                if(response.equals("s")||response.equals("S")){
+                    pubSub.mqttSubscribe("anuncio"+i);
+                    break;
+                }
+                else if(response.equals("n")|| response.equals("N")){
+                    break;
+                }
+                else{
+                    System.err.println("INPUT INVALIDO!!");
+                }
+            }
             menuPrinicipal();
         } catch (Exception e) {
             e.printStackTrace();
@@ -440,7 +463,7 @@ public class Client {
         menuPrinicipal();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         String host = "localhost";
         String port = "9000";  // porto do binder
         /*if (args.length != 3) { // requer 3 argumentos
@@ -453,14 +476,12 @@ public class Client {
         nomeUser = args[2];
         */
         nomeUser="barradas";
-        try {
+        pubSub = new Subscriber(nomeUser);
+
             System.out.println("Bem vindo " + nomeUser);
             menuPrinicipal();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("ERRO AO CONECTAR!");
-        }
+
     }
     public static void printAnuncio(JSONObject obj) throws java.text.ParseException {
         String dateStr = obj.getString("data");
