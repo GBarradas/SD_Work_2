@@ -1,0 +1,11 @@
+sd/rentRoom/auth/dto/Anuncio.class
+sd/rentRoom/auth/controller/MsgResource.class
+sd/rentRoom/auth/controller/ErrorResource.class
+sd/rentRoom/auth/security/RentRoomAuthorizationFilter.class
+sd/rentRoom/auth/RentRoomApplication.class
+sd/rentRoom/auth/controller/GestaoResource.class
+sd/rentRoom/auth/RentRoomApplication$WebSecurityConfig.class
+sd/rentRoom/auth/controller/AnucioResource.class
+sd/rentRoom/auth/dto/Mensagem.class
+sd/rentRoom/auth/controller/BDConexao.class
+sd/rentRoom/auth/mqtt/Publisher.class
