@@ -5,44 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a324b16-be61-41c8-a975-0fa07ddf9658" name="Changes" comment="20230112-00:00">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/controller/GestaoResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/controller/MsgResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/dto/Anuncio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/dto/Mensagem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/original/mqtt/Publisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/original/mqtt/Subscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/original/rest/AnucioResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/original/rest/BDConexao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/original/rest/GestaoResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/original/rest/MainAppServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restClient/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restClient/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restClient/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restClient/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restClient/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restClient/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sd-t02-48092-48402/src/restClient/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sd-t02-48092-48402/src/restClient/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sd-t02-48092-48402/src/restClient/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sd-t02-48092-48402/src/restClient/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sd-t02-48092-48402/src/restClient/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sd-t02-48092-48402/src/restClient/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/client/ClienteGestao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/client/ClienteGestao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/mqtt/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/mqtt/Publisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/mqtt/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/mqtt/Subscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/AnucioResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/controller/AnucioResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/Anuncio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/original/rest/Anuncio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/BDConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/controller/BDConexao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/MainAppServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/Mensagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/original/rest/Mensagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/rest/MsgResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/original/rest/MsgResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sd/rentRoom/rest/MainAppServerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/client/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/client/ClienteGestao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/mqtt/Publisher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/mqtt/Subscriber$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/mqtt/Subscriber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/AnucioResource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/Anuncio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/BDConexao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/MainAppServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/Mensagem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sd/rentRoom/rest/MsgResource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/sd/rentRoom/rest/MainAppServerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/client/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/client/ClienteGestao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/controller/AnucioResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/controller/BDConexao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/controller/GestaoResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/controller/MsgResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/dto/Anuncio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/dto/Mensagem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/mqtt/Publisher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth/mqtt/Subscriber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/original/mqtt/Publisher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/original/mqtt/Subscriber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/original/rest/AnucioResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/original/rest/Anuncio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/original/rest/BDConexao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/original/rest/GestaoResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/original/rest/MainAppServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/original/rest/Mensagem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/original/rest/MsgResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
     </list>
     <list id="15e93595-8a28-42c7-bcd1-308fc7ad6062" name="Changes by andre" comment="" />
     <list id="85d4b3d7-3b78-476b-9a81-a771515c8ba2" name="Changes by barradas" comment="" />
@@ -91,7 +93,7 @@
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "jdk.selected.JAVA_MODULE": "18",
-    "last_opened_file_path": "/home/barradas/Desktop/SD_Work_2/src/main/java/sd/rentRoom/auth/mqtt",
+    "last_opened_file_path": "/home/barradas/Desktop/SD_Work_2/sd-t02-48092-48402/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -99,7 +101,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "spring.configuration.checksum": "288fcbb7342e02646e28fbaf126782c7",
+    "spring.configuration.checksum": "0e62daf3a69580ae510f3995b2af0d5d",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -112,7 +114,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/sd/rentRoom/auth" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.sd.rentRoom.auth.client.Client">
+  <component name="RunManager" selected="Application.sd.rentRoom.auth.client.Client (1)">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sd.rentRoom.client.Client" />
       <module name="sd.rentRoom" />
@@ -139,6 +141,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sd.rentRoom.auth.client.Client (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sd.rentRoom.auth.client.Client" />
+      <module name="jwtDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sd.rentRoom.auth.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="sd.rentRoom.auth.client.Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sd.rentRoom.auth.client.Client" />
       <module name="sd.rentRoom" />
@@ -152,6 +167,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sd.rentRoom.auth.client.ClienteGestao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sd.rentRoom.auth.client.ClienteGestao" />
+      <module name="jwtDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sd.rentRoom.auth.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="sd.rentRoom" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="sd.rentRoom" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainAppServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="sd.rentRoom" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="sd.rentRoom.rest.MainAppServer" />
@@ -159,8 +200,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RentRoomApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="rentRoom" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="sd.rentRoom.auth.RentRoomApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.sd.rentRoom.auth.client.Client (1)" />
+        <item itemvalue="Application.sd.rentRoom.auth.client.ClienteGestao" />
         <item itemvalue="Application.sd.rentRoom.auth.client.Client" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.ClienteGestao" />
@@ -183,6 +233,8 @@
       <workItem from="1673454330360" duration="23867000" />
       <workItem from="1673531610757" duration="1693000" />
       <workItem from="1673533567075" duration="3612000" />
+      <workItem from="1673538243235" duration="11518000" />
+      <workItem from="1673557276611" duration="1670000" />
     </task>
     <task id="LOCAL-00001" summary="20230111-00:55">
       <created>1673398750278</created>
@@ -202,7 +254,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="auth" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
