@@ -28,8 +28,9 @@ public class RentRoomApplication {
                     .addFilterAfter(new RentRoomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                     .authorizeRequests()
                     .antMatchers(HttpMethod.GET, "/anuncios/listar**", "/anuncios**",
-                            "/anuncios/{aid}","/msg/see**").permitAll()  // esta zona esta aberta para facilitar geracao de tokens - DEMONSTRACAO
-                    .antMatchers(HttpMethod.POST, "/anuncios/user","/anuncios/novo","/msg/send","/user" ).permitAll()
+                            "/anuncios/{aid}","/msg/see**","/msg**").permitAll()  // esta zona esta aberta para facilitar geracao de tokens - DEMONSTRACAO
+                    .antMatchers(HttpMethod.POST, "/anuncios/user","/anuncios/novo",
+                            "/msg/send","/user" ).permitAll()
                     //.antMatchers(HttpMethod.POST,"/gestao","/gestao/").access("hasRole('ADMIN')")
                     .anyRequest().authenticated();
         }
