@@ -21,7 +21,7 @@ import java.util.Date;
  * @author barradas e baião
  */
 public class ClienteGestao {
-    static final String token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTY3MzU0NDY3OX0.j76wG4QEN8pGFnonq0Oor_MdboNI0J45J8-BMD4yiiHBAmrJPK5L4ZjO3lkIiwLtk2nGqRhHmDhFpkD1C3GVmw";
+    static final String token = "TOKEN";
     static final String URI = "http://localhost:8080";
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
